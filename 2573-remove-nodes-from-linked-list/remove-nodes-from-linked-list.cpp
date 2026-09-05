@@ -23,19 +23,16 @@ public:
         }
         ListNode* curr=previ;
         int maxi=-1;
-        ListNode* newnode=NULL;
-        ListNode* bc=NULL;
+        ListNode* ans=NULL;
         while(curr!=NULL){
+            ListNode* nxt=curr->next;
             if(curr->val >= maxi){
-                newnode=new ListNode(curr->val);
-                if(bc!=NULL){
-                    newnode->next=bc;
-                }
-                bc=newnode;
+                curr->next=ans;
+                ans=curr;
                 maxi=curr->val;
             }
-            curr=curr->next;
+            curr=nxt;
         }
-        return newnode;
+        return ans;
     }
 };

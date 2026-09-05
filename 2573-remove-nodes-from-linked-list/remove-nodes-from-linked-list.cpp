@@ -21,22 +21,19 @@ public:
             previ = temp;
             temp = front;
         }
-        ListNode* curr = previ;
-        // ListNode* dummy = new ListNode(-1);
-        ListNode* bc = NULL;
+        ListNode* curr=previ;
+        int maxi=-1;
         ListNode* newnode=NULL;
-        while (curr != NULL) {
-            while (!st.empty() && curr->val >= st.top()) {
-                st.pop();
-            }
-
-            if (st.empty()) {
-                newnode = new ListNode(curr->val);
+        ListNode* bc=NULL;
+        while(curr!=NULL){
+            if(curr->val >= maxi){
+                newnode=new ListNode(curr->val);
                 if(bc!=NULL){
-                newnode->next=bc;}
-                bc = newnode;
+                    newnode->next=bc;
+                }
+                bc=newnode;
+                maxi=curr->val;
             }
-            st.push(curr->val);
             curr=curr->next;
         }
         return newnode;

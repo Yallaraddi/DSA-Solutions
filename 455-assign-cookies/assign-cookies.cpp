@@ -9,10 +9,6 @@ public:
         int j = 0;
         for (int i = 0; i < n1; i++) {
             int wtboy = g[i];
-
-            if (j == n2) {
-                break;
-            }
             while (j < n2 && s[j] < wtboy) {
                 j++;
             }

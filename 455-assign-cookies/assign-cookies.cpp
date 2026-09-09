@@ -6,18 +6,13 @@ public:
         sort(s.begin(), s.end());
         sort(g.begin(), g.end());
         int count = 0;
-        int j = 0;
-        for (int i = 0; i < n1; i++) {
-            int wtboy = g[i];
-            while (j < n2 && s[j] < wtboy) {
-                j++;
-            }
-            if (j != n2) {
+        int i=0,j=0;
+        while(i<n1 && j<n2){
+            if(s[j]>=g[i]){
                 count++;
-                j++;
-            } else {
-                break;
+                i++;
             }
+            j++;
         }
         return count;
     }

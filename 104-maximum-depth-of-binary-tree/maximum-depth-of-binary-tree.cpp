@@ -12,17 +12,17 @@
  */
 class Solution {
 public:
-    int maxans = 0;
-    int ans = 0;
-    int maxDepth(TreeNode* root) { 
-        return helper(root, 0); }
-    int helper(TreeNode* root, int x) {
-        if (root == NULL) {
-            maxans = max(maxans, x);
-            return 0;
-        }
-        helper(root->left, x + 1);
-        helper(root->right, x + 1);
+    int maxDepth(TreeNode* root) {
+        int maxans = 0;
+        helper(root, 0, maxans);
         return maxans;
+    }
+    void helper(TreeNode* root, int len, int& maxans) {
+        if (root == NULL) {
+            maxans = max(maxans, len);
+            return;
+        }
+        helper(root->left, len + 1,maxans);
+        helper(root->right, len + 1,maxans);
     }
 };

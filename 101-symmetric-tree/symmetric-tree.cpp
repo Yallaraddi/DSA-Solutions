@@ -17,16 +17,16 @@ public:
         }
         TreeNode* node1=root;
         TreeNode* node2=root;
-        return helper(root,node1,node2);
+        return helper(node1,node2);
     }
-    bool helper(TreeNode* root,TreeNode* node1,TreeNode* node2){
+    bool helper(TreeNode* node1,TreeNode* node2){
         if(node1==NULL && node2==NULL){
             return true;
         }
         if(node1==NULL || node2==NULL) return false;
         if(node1->val!=node2->val) return false;
-        bool p1=helper(root,node1->left,node2->right);
-        bool p2=helper(root,node1->right,node2->left);
+        bool p1=helper(node1->left,node2->right);
+        bool p2=helper(node1->right,node2->left);
         return p1&&p2;
     }
 };

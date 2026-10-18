@@ -15,7 +15,7 @@ public:
         if(root->left==NULL && root->right==NULL){
             return 0;
         }
-        int ans=0,di;
+        int ans=0,di=1;
         helper(root,ans,di);
         return ans;
     }

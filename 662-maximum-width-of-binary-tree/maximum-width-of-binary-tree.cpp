@@ -22,23 +22,22 @@ public:
             mini = 0, maxi = 0;
             for (int i = 0; i < n; i++) {
                 TreeNode* node = q.front().first;
-                unsigned long long  pos = q.front().second;
+                unsigned long long pos = q.front().second;
                 q.pop();
                 if (mini == 0) {
                     mini = pos;
                 }
                 maxi = pos;
                 if (node->left != NULL) {
-                    q.push({node->left, (unsigned long long)((pos * 2) - 1)});
+                    q.push({node->left, (unsigned long long)(pos * 2) - 1});
                 }
                 if (node->right != NULL) {
-                    q.push({node->right, (unsigned long long)((pos * 2) - 0)});
+                    q.push({node->right, (unsigned long long)(pos * 2)});
                 }
             }
             maxans = max(maxans, (maxi - mini) + 1);
         }
         maxans = max(maxans, (maxi - mini) + 1);
-        int finalans=maxans;
-        return finalans;
+        return maxans;
     }
 };

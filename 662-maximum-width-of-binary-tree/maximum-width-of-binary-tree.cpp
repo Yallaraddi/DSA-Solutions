@@ -38,6 +38,6 @@ public:
             maxans = max(maxans, (maxi - mini) + 1);
         }
         maxans = max(maxans, (maxi - mini) + 1);
-        return maxans;
+        return int(maxans);
     }
 };
